@@ -2,9 +2,7 @@
 Notice parser example script for irssi
 
 # Install
-put files under:
-
-  ~/.script/
+put files under: ~/.script/
 
 then run: 
 
