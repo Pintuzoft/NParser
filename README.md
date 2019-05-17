@@ -2,7 +2,7 @@
 Notice parser example script for irssi
 
 # Install
-put files under: ~/.irssi/scripts/
+put nparser.pl file and npclass folder under: ~/.irssi/scripts/
 
 then run: 
 
