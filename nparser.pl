@@ -68,7 +68,7 @@ sub filterIncomingNotice {
     my ( $target, $text ) = split / :/, $data, 2;
 
     # SNOTICE
-    if ( $text =~ m/\./ || ! defined $addr ) {
+    if ( defined $from && $from =~ m/\./ || ! defined $addr ) {
         winPrint ( $snoticeWin, "%K".$from."%n: %W".$text );
         Irssi::signal_stop ( );
 
