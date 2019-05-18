@@ -28,7 +28,6 @@ Irssi::printformat(MSGLEVEL_CLIENTCRAP, 'nparser_loaded', $setting->{name}, $set
 
 # ACTION WIN ( Default )
 my $noticeWin = new NPData (
-    type    => NOTICE,
     name    => "Notice",
     window  => 0,
 );
@@ -43,7 +42,6 @@ $noticeWin->{window} = Irssi::window_find_name ( $noticeWin->{name} );
 
 # CHAT WINDOW
 my $snoticeWin = new Data (
-    type    => SNOTICE,
     name    => "SNotice",
     window  => 0,
 );
