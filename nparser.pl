@@ -26,12 +26,12 @@ my $server = Irssi::active_server()->{'tag'};
 Irssi::theme_register ( ['nparser_loaded', '%R>>%n %_Scriptinfo:%_ Loaded $0 version $1 by $2.' ] );
 Irssi::printformat(MSGLEVEL_CLIENTCRAP, 'nparser_loaded', $setting->{name}, $setting->{version}, $setting->{authors});
 
-# ACTION WIN ( Default )
+# NOTICE WIN ( Default )
 my $noticeWin = new NPData (
     name    => "Notice",
     window  => 0,
 );
-# ACTION WINDOW. FIND OR CREATE
+# NOTICE WINDOW. FIND OR CREATE
 my $notice = getWindow ( $noticeWin );
 if ( defined $notice ) {
     $noticeWin->{type} = $notice;
@@ -40,12 +40,12 @@ if ( defined $notice ) {
 }
 $noticeWin->{window} = Irssi::window_find_name ( $noticeWin->{name} );
 
-# CHAT WINDOW
+# SNOTICE WINDOW
 my $snoticeWin = new Data (
     name    => "SNotice",
     window  => 0,
 );
-# CHAT WINDOW. FIND OR CREATE
+# SNOTICE WINDOW. FIND OR CREATE
 my $snotice = getWindow ( $snoticeWin );
 if ( defined $snotice ) {
     $snoticeWin->{type} = $snotice;
