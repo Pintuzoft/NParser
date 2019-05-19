@@ -41,7 +41,7 @@ if ( defined $notice ) {
 $noticeWin->{window} = Irssi::window_find_name ( $noticeWin->{name} );
 
 # SNOTICE WINDOW
-my $snoticeWin = new Data (
+my $snoticeWin = new NPData (
     name    => "SNotice",
     window  => 0,
 );
