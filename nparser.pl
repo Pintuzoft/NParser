@@ -67,7 +67,7 @@ sub filterIncomingNotice {
 
     # SNOTICE
     if ( defined $from && $from =~ m/\./ || ! defined $addr ) {
-        winPrint ( $snoticeWin, "%K".$from."%n: %W".$text );
+        winPrintSNotice ( $snoticeWin, "%K".$from."%n: %W".$text );
         Irssi::signal_stop ( );
 
     # CHANNEL NOTICE
@@ -85,7 +85,7 @@ sub filterIncomingNotice {
 # Print to window
 sub winPrint {
     my ( $win, $text ) = @_;
-    $win->{window}->print ( $text, MSGLEVEL_CLIENTCRAP );
+    $win->{window}->print ( $text, MSGLEVEL_MSGS );
 }
 
 # Print incoming server notice to window
@@ -95,7 +95,7 @@ sub winPrintSNotice {
 }
 
 
-# Return the action array position based of existing window
+# Return the window if it exists
 sub getWindow {
     my ( $win ) = @_;
     if ( my $window = Irssi::window_find_name ( $win->{name} ) ) {
