@@ -21,8 +21,6 @@ my $setting = new NPData (
     license     => 'Public Domain',    
 );
 
-my $server = Irssi::active_server()->{'tag'};
-
 Irssi::theme_register ( ['nparser_loaded', '%R>>%n %_Scriptinfo:%_ Loaded $0 version $1 by $2.' ] );
 Irssi::printformat(MSGLEVEL_CLIENTCRAP, 'nparser_loaded', $setting->{name}, $setting->{version}, $setting->{authors});
 
@@ -36,7 +34,7 @@ my $notice = getWindow ( $noticeWin );
 if ( defined $notice ) {
     $noticeWin->{type} = $notice;
 } else {
-    createWindow ( $server, $noticeWin->{name}, 2 );
+    createWindow ( $noticeWin->{name}, 2 );
 }
 $noticeWin->{window} = Irssi::window_find_name ( $noticeWin->{name} );
 
@@ -50,7 +48,7 @@ my $snotice = getWindow ( $snoticeWin );
 if ( defined $snotice ) {
     $snoticeWin->{type} = $snotice;
 } else {
-    createWindow ( $server, $snoticeWin->{name}, 3 );
+    createWindow ( $snoticeWin->{name}, 3 );
 }
 $snoticeWin->{window} = Irssi::window_find_name ( $snoticeWin->{name} );
 
@@ -107,10 +105,9 @@ sub getWindow {
 
 # Create new window
 sub createWindow {
-    my ( $server, $name, $position ) = @_;
+    my ( $name, $position ) = @_;
     Irssi::command ( "window new hidden" );
     Irssi::command ( "window name ".$name );
-    Irssi::command ( "window server ".$server );
     Irssi::command ( "window move ".$position );
 }
 
